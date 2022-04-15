@@ -1,0 +1,16 @@
+version: '3.1'
+networks:
+  network1:
+
+services:
+  db:
+    build: db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    container_name: db_ads_aiohttp
+    networks:
+      network1:
+        aliases:
+          - db-main
